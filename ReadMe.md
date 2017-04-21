@@ -21,7 +21,7 @@ Tested on: Windows, Ubuntu, Debian and CentOS
 	
 	Steps:
 	a) Extract the Logcollector.zip file to the directory where you intend to store the incoming logs.
-		e.g., cp Logcollector.zip /var/log
+		e.g., `cp Logcollector.zip /var/log`
 			  cd /var/log
 			  gunzip Logcollector.zip
 	b) 'cd' into the Logcollector directory and run the 'LPF-server-start.py' in background.
