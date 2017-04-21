@@ -1,4 +1,4 @@
-             ==================================LPF: Logcollector Plus FIM v1.0=========================
+###          ==================================LPF: Logcollector Plus FIM v1.0=========================
 
 Hi, This tool is meant to do log collection at a centralized location and also to perform FIM(File Integrity monitoring) check over a number of specified files. It will work on Linux/Unix systems that supports Python 2.6 or above with pyCrypto module installed. Salient features of the tool are as follows:
 
