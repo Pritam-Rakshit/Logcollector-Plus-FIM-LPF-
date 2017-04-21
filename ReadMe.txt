@@ -3,7 +3,7 @@
 Hi, This tool is meant to do log collection at a centralized location and also to perform FIM(File Integrity monitoring) check over a number of specified files. It will work on Linux/Unix systems that supports Python 2.6 or above with pyCrypto module installed. Salient features of the tool are as follows:
 
 1) On demand log encryption - Encrypt syslog events on the go while sending events to remote centralized logcollector.
-2) Reliable FIM engine - Trigger alert logs on file integrity change and send it to the centralized for better analysis.
+2) Reliable FIM engine - Trigger alert logs on file integrity change and send it to the centralized server for better analysis.
 3) Multiprocessing/Multithreading - Better use of multiprocessing and multithreading modules available with Python to distribute load accross the processing units.
 4) It's easy to set it up.
 
