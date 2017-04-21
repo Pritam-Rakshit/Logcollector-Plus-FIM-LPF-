@@ -21,7 +21,7 @@ Tested on: Windows, Ubuntu, Debian and CentOS
 	
 	Steps:
 	a) Extract the Logcollector.zip file to the directory where you intend to store the incoming logs.
-		e.g., `cp Logcollector.zip /var/log`
+		e.g., cp Logcollector.zip /var/log
 			  cd /var/log
 			  gunzip Logcollector.zip
 	b) 'cd' into the Logcollector directory and run the 'LPF-server-start.py' in background.
@@ -84,5 +84,5 @@ This module is to be configured on the servers where you want to run the FIM ser
 	
 This is an underdevelopment project with futher modifications to be added in near future. Kindly do a proper testing before brining any of these into a production environment. 
 
-#Built by Pritam Rakshit, SOC 
-#Supported by Rahul Arya, IT Infra and Gautam Rakshit, .Net Developer
+###Built by Pritam Rakshit, SOC 
+###Supported by Rahul Arya, IT Infra and Gautam Rakshit, .Net Developer###
