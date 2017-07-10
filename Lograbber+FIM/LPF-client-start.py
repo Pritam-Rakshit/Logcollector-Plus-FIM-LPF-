@@ -5,7 +5,7 @@ import re
 import threading
 import DynamicRead
 import DHKE_CLI
-import fimcheck_final
+import fimcheck
 import chk_rotate
 from multiprocessing import Process
 
@@ -82,7 +82,7 @@ def main():
 		else:
 			pass
 		print("Starting FIM engine......")
-		p2 = Process(target=fimcheck_final.FimInitiate, args=(fim_interval,fim_loc))
+		p2 = Process(target=fimcheck.FimInitiate, args=(fim_interval,fim_loc))
 		p2.start()
 		p3 = Process(target=chk_rotate.chk_status_run, args=(30,log_loc))
 		p3.start()
