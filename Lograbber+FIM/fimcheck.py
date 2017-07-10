@@ -159,3 +159,5 @@ def FimInitiate(Interval, fimlocs = []):
 		
 if __name__=="__main__":
 	FimInitiate(12 ,['/var/log/anaconda/journal.log','/etc/passwd','/var/log/audit/audit.log'])
+	
+#Built by - Pritam R - 2017
