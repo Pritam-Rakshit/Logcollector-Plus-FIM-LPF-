@@ -27,7 +27,7 @@ Tested on: Ubuntu, Debian and CentOS
  			  2. LPF-client (Enter 2)
  			  :		
 
-	b) Follow the onscreen instructions and provide the server IP & other details. Once done the packages will be compiled and place in "/var/LPF-server" directory. To start the server use below command: 
+	b) Follow the onscreen instructions and provide the server IP & other details. Once done the packages will be compiled and placed in "/var/LPF-server" directory. To start the server use below command: 
 		 Command: # python /var/LPF-server/netra-server-start.pyc &
 					Or,
 			  # /usr/bin/python  /var/LPF-server/netra-server-start.pyc &
