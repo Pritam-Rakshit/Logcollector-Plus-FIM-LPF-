@@ -81,7 +81,7 @@ This module is to be configured on the servers where you want to run the FIM ser
 		#Agent-IP : IP of interface through which logs should pass
 		agent-ip=192.168.1.63
 		
-	c) Start the client service using 'LPF-client-start.py' if everything is done correctly you will see your system logs pouring into your server side(/var/log/Logcollector at server side in this case). Keep track of error logs in case of any error.
+	c) Start the client service using 'netra-service-start.pyc' if everything is done correctly you will see your system logs pouring into your server side(/var/LPF-server/Receuved-logs) at server side in this case). Keep track of error logs in case of any error.
 	
 		 Command: # python /var/LPF-client/netra-service-start.pyc &
 
