@@ -25,7 +25,7 @@ Tested on: Ubuntu, Debian and CentOS
 			 Select the module to be installed:
  			  1. LPF-server (Enter 1)
  			  2. LPF-client (Enter 2)
- 			  :		
+ 			  :1		
 
 	b) Follow the onscreen instructions and provide the server IP & other details. Once done the packages will be compiled and placed in "/var/LPF-server" directory. To start the server use below command: 
 		 Command: # python /var/LPF-server/netra-server-start.pyc &
@@ -49,11 +49,13 @@ This module is to be configured on the servers where you want to run the FIM ser
 			Client_IP:Any --> Server_IP:8888 (UDP - for incoming logs)
 			Client_IP:any <-- --> Server_IP:8844 (TCP -  for key negotiation)
 			
-	a) Extract the Lograbber+FIM.zip file to the directory where you intend to store the incoming logs.
-		e.g., cp Lograbber+FIM.zip /root/
-			  cd /root
-			  gunzip Lograbber+FIM.zip
-	b) Set the input parameters like server-ip, agent-ip, log file locations, FIM locations and FIM interval etc, in the 'logcollector.conf'. First, open the 'logcollector.conf' file unsing a text editor like 'vi', 'nano' or 'gedit' and make the entries as specified.
+	a) Run the installer (install.py) , select option 2 to install the LPF-client:
+		command: # python install.py
+			 Select the module to be installed:
+ 			  1. LPF-server (Enter 1)
+ 			  2. LPF-client (Enter 2)
+ 			  :2
+	b) Set the input parameters like server-ip, agent-ip, operating system type during installation. Once done, the setup will place the complied files at "/var/LPF-client" and build a client config for you. Open the 'NLPF-client.conf' file unsing a text editor like 'vi', 'nano' or 'gedit' and do a walkthrough for understanding the configs.
 	
 		**First entry is the 'server-ip' where you will enter the IP of the system where the Logcollector (Server module) is running.
 		e.g., say the Logcollector is running on IP 192.168.1.33 then the entry will be --> server-ip=192.168.1.33
@@ -64,10 +66,10 @@ This module is to be configured on the servers where you want to run the FIM ser
 
 		Note: /var/log/fim_alert.log is the file where the FIM alerts are stored. Any new addition to the file should be sent to the centralized server.
 		
-		**Third entry will be of the locations of the files over which you would like to do FIM. Generally, these meant to be config files like apache2.conf, nginx.conf or other static system files over which only priviledged users can make changes. Keeping a track on these files can help us keep track of any mischievious entries or tampering with access rights.
+		**Third entry will be of the locations of the files over which you would like to do FIM. Generally, these are meant to be config files like apache2.conf, nginx.conf or other static system files over which only priviledged users can make changes. Keeping a track on these files can help us keep track of any mischievious entries or tampering with access rights.
 		e.g.,
 		FIMloc=/etc/passwd,/etc/shadow,/etc/sudoers
-		Interval=30
+		Interval=300
 
 		**Enable or disable data encryption options. Make sure port 8844 of the Server is reachable from your client system. The client will try to negotitate key with the server once the option is set to 'on'.
 		e.g.,
@@ -81,11 +83,13 @@ This module is to be configured on the servers where you want to run the FIM ser
 		
 	c) Start the client service using 'LPF-client-start.py' if everything is done correctly you will see your system logs pouring into your server side(/var/log/Logcollector at server side in this case). Keep track of error logs in case of any error.
 	
-	Command: cd /root/Lograbber+FIM/
-			 python LPF-client-start.py &
+		 Command: # python /var/LPF-client/netra-service-start.pyc &
 
-	d) Use 'LPF-service-stop.py' to stop all the LPF services.
-	Command: python LPF-service-stop.py 
+
+	d) Use 'netra-service-stop.pyc' to stop all the LPF services.
+	Command: # python /var/LPF-client/netra-service-stop.pyc 
+				or
+		 # python /var/LPF-server/netra-service-stop.pyc
 	
 This is an underdevelopment project with futher modifications to be added in near future. Kindly do a proper testing before brining any of these into a production environment. 
 
