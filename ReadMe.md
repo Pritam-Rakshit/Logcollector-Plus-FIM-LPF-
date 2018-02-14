@@ -1,4 +1,4 @@
-          ==================================LPF: Logcollector Plus FIM v1.0=========================
+          =============================Netra LPF: Logcollector Plus FIM v1.1=========================
 
 Hi, This tool is meant to do log collection at a centralized location and also to perform FIM(File Integrity monitoring) check over a number of specified files. It will work on Linux/Unix systems that supports Python 2.6 or above with pyCrypto module installed. Salient features of the tool are as follows:
 
@@ -10,31 +10,36 @@ Hi, This tool is meant to do log collection at a centralized location and also t
 How to set it up?
 
 1) Python 2.6.x or 2.7.x should be configured with pyCrypto module where the tool is intended to be used. Please note without pyCrypto you will not be able to use the log encryption feature.
-   To install pyCrypto you can use 'pip'. Command: 'pip install pycrypto'
+   To install pyCrypto you can use 'pip'. Command: 'pip install pycrypto'
    You may need to install 'build essentials' packages and python-dev packages before using pip module - 'apt-get install python-dev'.
    
-2) Logcollector module (i.e. Server module):
+2) LPF-server module (i.e. Logcollector):
 
-This module should be configured on a box that is intended to be used as a storage server for the logs. The box can be a Linux or Windows system. Ubuntu/Debian systems are recommended to be used as a logcollector VM in this case. 
+This module should be configured on a box that is intended to be used as a storage server for the logs and FIM alerts. The box should be a Linux system. Ubuntu/Debian systems are recommended to be used as a logcollector VM in this case. 
 
-Tested on: Windows, Ubuntu, Debian and CentOS
+Tested on: Ubuntu, Debian and CentOS
 	
 	Steps:
-	a) Extract the Logcollector.zip file to the directory where you intend to store the incoming logs.
-		e.g., cp Logcollector.zip /var/log
-			  cd /var/log
-			  gunzip Logcollector.zip
-	b) 'cd' into the Logcollector directory and run the 'LPF-server-start.py' in background.
-		e.g., cd /var/log/Logcollector
-			  python LPF-server-start.py &
+	a) Run the installer (install.py) , select option 1 to install the LPF-server:
+		command: # python install.py
+			 Select the module to be installed:
+ 			  1. LPF-server (Enter 1)
+ 			  2. LPF-client (Enter 2)
+ 			  :		
+
+	b) Follow the onscreen instructions and provide the server IP & other details. Once done the packages will be compiled and place in "/var/LPF-server" directory. To start the server use below command: 
+		 Command: # python /var/LPF-server/netra-server-start.pyc &
 					Or,
-			  /usr/bin/python  LPF-server-start.py &
+			  # /usr/bin/python  /var/LPF-server/netra-server-start.pyc &
+			  N-LPF: Starting LPF server.....
+			  N-LPF: Listening for incoming syslog events........
+			  N-LPF: Waiting to receive request from client....
 
 		Voila! your logcollector module should be started if python(with pyCrypto) is there. You will see onscreen messages saying the server has started.
 
-	c) Received logs will be written to a file in the same diectory (say /var/log/Logcollector) in format 'Events-20-4-2017.log'. Log files will be created on a daily basis so that one can better keep track of logs and gzip them when required.
+	c) Received logs will be written to a file in the directory "/var/LPF-server/Received-logs"  in format 'Events-dd-mm-yyyy.log'. Log files will be created on a daily basis so that one can better keep track of logs and gzip them when required.
 	
-3) Lograbber+FIM module (i.e. Client module):
+3) LPF-client (i.e. Lograbber+FIM module module):
 	
 This module is to be configured on the servers where you want to run the FIM service and grab logs from them for safe keeping or analysis. This module has been tested on Ubuntu, Debian and CentOS.
 
