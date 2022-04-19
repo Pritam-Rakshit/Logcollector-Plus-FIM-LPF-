@@ -93,5 +93,5 @@ This module is to be configured on the servers where you want to run the FIM ser
 	
 This is an underdevelopment project with futher modifications to be added in near future. Kindly do a proper testing before brining any of these into a production environment. 
 
-###Built by Pritam Rakshit, SOC 
+###Built by Pritam Rakshit, Peter Mendonca
 ###Supported by Rahul Arya, IT Infra and Gautam Rakshit, .Net Developer###
